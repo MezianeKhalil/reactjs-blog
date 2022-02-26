@@ -1,7 +1,7 @@
 import React from 'react'
 import { HomeLayout } from '../components/Layout/_index'
 import { Helmet } from 'react-helmet'
-import { Navbar, Header } from '../components/blocs/_index'
+import { Navbar, Header, Footer } from '../components/blocs/_index'
 
 export default function Home() {
   return (
@@ -12,6 +12,7 @@ export default function Home() {
       <Navbar/>
       <Header/>
       <HomeLayout/>
+      <Footer/>
     </>
   )
 }
