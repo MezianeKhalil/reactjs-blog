@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <>
-        <Box fontFamily="poppins" px={4} px="16" shadow={"md"}>
+        <Box fontFamily="poppins" px="16" shadow={"md"}>
             <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                 <IconButton
                     size={'md'}
@@ -34,7 +34,11 @@ export default function Navbar() {
                     display={{ md: 'none' }}
                     onClick={isOpen ? onClose : onOpen}
                 />
-                <Heading as="h1" fontSize="3xl" fontFamily="poppins" fontWeight="medium">OurBlog</Heading>
+                <Heading as="h1" fontSize="3xl" fontFamily="poppins" fontWeight="semibold">
+                  <Link to="/">
+                    OurBlog
+                  </Link>
+                </Heading>
                 <Flex alignItems={'center'}>
                     <HStack
                         as={'nav'}

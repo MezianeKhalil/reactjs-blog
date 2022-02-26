@@ -11,27 +11,25 @@ import { Link } from 'react-router-dom'
   
   export default function Header() {
     return (
-      <Container maxW={'5xl'} fontFamily="poppins">
+      <Container maxW={'8xl'} fontFamily="poppins" h="64" bg="gray.100">
         <Stack
           textAlign={'center'}
           align={'center'}
           spacing={{ base: 2, md: 4 }}
-          py={{ base: 10, md: 16 }}>
+          py={{ base: 4, md: 9 }}>
           <Heading
             fontWeight={600}
             fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}
             fontFamily="poppins"
             >
-            Meeting scheduling{' '}
+            Lorem ipsum dolor {' '}
             <Text as={'span'} color={'purple.600'} fontFamily="poppins">
-              made easy
+              ourBlog
             </Text>
           </Heading>
           <Text color={'gray.700'} fontSize="lg" maxW={'4xl'}>
-            Never miss a meeting. Never be late for one too. Keep track of your
-            meetings and receive smart reminders in appropriate times. Read your
-            smart “Daily Agenda” every morning.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, expedita. Reprehenderit voluptatem id vel animi corrupti itaque corporis eligendi in minima, ipsa cum saepe voluptas?
           </Text>
           <Stack spacing={6} direction={'row'}>
             <Link to="/signup">
