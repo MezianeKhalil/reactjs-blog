@@ -15,14 +15,13 @@ import { Link } from 'react-router-dom'
         <Stack
           textAlign={'center'}
           align={'center'}
-          spacing={{ base: 4, md: 6 }}
-          py={{ base: 20, md: 28 }}>
+          spacing={{ base: 2, md: 4 }}
+          py={{ base: 10, md: 16 }}>
           <Heading
             fontWeight={600}
             fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}
             fontFamily="poppins"
-            
             >
             Meeting scheduling{' '}
             <Text as={'span'} color={'purple.600'} fontFamily="poppins">
