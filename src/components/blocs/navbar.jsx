@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <>
-        <Box fontFamily="poppins" px="16" shadow={"md"}>
+        <Box fontFamily="poppins" px={{ base: 4, sm: 6, md: 8, xl: 28 }} shadow={"md"}>
             <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                 <IconButton
                     size={'md'}

@@ -1,8 +1,9 @@
 import React from 'react'
-import { Box, Heading, Text, Stack, useColorModeValue} from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import { Box, Heading, Text, Stack } from '@chakra-ui/react'
+import { Link, useParams } from 'react-router-dom'
 
 export default function BlogPost() {
+  const { id } = useParams()
   return (
     <Box py={3} fontFamily="poppins">
       <Box
@@ -22,7 +23,7 @@ export default function BlogPost() {
                 letterSpacing={1.1}>
                 Blog
             </Text>
-            <Link to='/article/4'>
+            <Link to={`/article/${id}`}>
                 <Heading
                     color="gray.900"
                     fontSize={'2xl'}

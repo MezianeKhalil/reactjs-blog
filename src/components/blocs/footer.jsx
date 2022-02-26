@@ -10,11 +10,12 @@ import {
   export default function SmallCentered() {
     return (
         <Box
-            bg="gray.100"
-            color="gray.700"
-            py="5"
-            mt="4"
-            fontFamily="poppins"
+          bg="gray.100"
+          color="gray.700"
+          py="5"
+          mt="4"
+          px={{ base: 4, sm: 6, md: 8, xl: 28 }}
+          fontFamily="poppins"
         >
         <Container
           as={Stack}
@@ -39,7 +40,6 @@ import {
             align={{ base: 'center', md: 'center' }}>
             <Text>©2022 OurBlog. All rights reserved</Text>
             <Stack direction={'row'} spacing={6}>
-                {/* links */}
                 <Text>link 1</Text>
                 <Text>link 1</Text>
                 <Text>link 1</Text>
