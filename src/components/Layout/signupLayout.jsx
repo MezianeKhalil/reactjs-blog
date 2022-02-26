@@ -1,6 +1,9 @@
 import React from 'react'
-import { Box, GridItem, SimpleGrid, Text, Image } from "@chakra-ui/react"
-import { Link } from 'react-router-dom'
+import { Box, GridItem, SimpleGrid, Text, Image, Flex } from "@chakra-ui/react"
+import { SignupForm } from '../form/_index'
+import LoginImage from '../../assets/images/Login.png'
+
+
 
 export default function SignupLayout() {
   return (
@@ -17,30 +20,15 @@ export default function SignupLayout() {
             colSpan={{ base: 0, lg: 6 }}
             display={{base:"none", lg:"block"}}
           >
-            {/* image */}
-            <Box h="96" w="full" bg="green.500"></Box>
-            {/* end image */}
+           <Image src={LoginImage} w="80%" mx="auto"/>
           </GridItem>
           <GridItem
             colSpan={{ base: "auto", md: 6 }}
           >
             <Box>
-              <Text fontSize="3xl" fontWeight="semibold" textTransform="capitalize" pt={2}>Create account</Text>
-
-              {/* login form */}
-              <Box h="96" w="full" bg="red.500"></Box>
-              {/* end login form */}
-              <Text 
-                fontSize="md" 
-                textAlign="center" 
-                color="gray.700" 
-                textTransform="capitalize" 
-              >
-                already have account? 
-                <Link to="/login">
-                    <Text display="inline" px="2" fontWeight="semibold" color="green.500">Login</Text>
-                </Link>
-              </Text>
+              <Flex h="96" w="full" justifyItems={"center"} alignItems="center">
+                <SignupForm/>
+              </Flex>
             </Box>
           </GridItem>
         </SimpleGrid>

@@ -24,7 +24,6 @@ export default function LoginLayout() {
             colSpan={{ base: "auto", lg: 6 }}
           >
             <Box>
-              <Text fontSize="3xl" fontWeight="semibold" textTransform="capitalize">login</Text>
               <Flex h="96" w="full" justifyItems={"center"} alignItems="center">
                 <LoginForm/>
               </Flex>
