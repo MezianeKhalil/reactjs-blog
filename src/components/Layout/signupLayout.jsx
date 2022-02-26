@@ -25,11 +25,9 @@ export default function SignupLayout() {
           <GridItem
             colSpan={{ base: "auto", md: 6 }}
           >
-            <Box>
-              <Flex h="96" w="full" justifyItems={"center"} alignItems="center">
-                <SignupForm/>
-              </Flex>
-            </Box>
+            <Flex h="96" w="full" justifyItems={"center"} alignItems="center">
+              <SignupForm/>
+            </Flex>
           </GridItem>
         </SimpleGrid>
     </Box>

@@ -3,12 +3,19 @@ import { Formik, Form } from 'formik'
 import { InputField } from './types/_index'
 import { Button, Box, Text } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
+import * as yup  from 'yup'
+
+const loginSchemaValidation = yup.object({
+    email:yup.string().email('invalid email').required('email is required'),
+    password:yup.string().min(6,'password to short').required('password is required'),
+})
 
 
 export default function LoginForm() {
   return (
     <Formik
         initialValues={{email:"",password:""}}
+        validationSchema={loginSchemaValidation}
         onSubmit={
             (values)=>{
                 console.log("values:", values)
@@ -17,7 +24,7 @@ export default function LoginForm() {
     >
         {
             ()=>(
-                <div>
+                <Box w="full" pr="12">
                     <Text fontSize="3xl" fontWeight="semibold" textTransform="capitalize">login</Text>
                     <Form>
                         <InputField name='email' label="email" type="text" placeholder='email'/>
@@ -35,7 +42,7 @@ export default function LoginForm() {
                             <Text display="inline" px="2" fontWeight="semibold" color="purple.500">Create</Text>
                         </Link>
                     </Text>
-                </div>
+                </Box>
             )
         }
     </Formik>
