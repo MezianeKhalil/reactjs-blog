@@ -9,17 +9,12 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
-  useDisclosure,
-  Stack,
   Heading,
-  Text
 } from '@chakra-ui/react'
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import { Link } from 'react-router-dom'
-import { BiPlusCircle, BiDownArrow } from "react-icons/bi"
+import { BiDownArrow } from "react-icons/bi"
 
 export default function Navbar() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>

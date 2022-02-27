@@ -1,17 +1,12 @@
 import React from 'react'
-import {
-    Box,
-    Container,
-    Stack,
-    Text,
-    useColorModeValue,
-  } from '@chakra-ui/react';
+import { Box, Container, Stack, Text } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
   export default function SmallCentered() {
     return (
         <Box
           bg="gray.100"
-          color="gray.700"
+          color="gray.800"
           py="5"
           mt="4"
           px={{ base: 4, sm: 6, md: 8, xl: 28 }}
@@ -24,12 +19,12 @@ import {
           spacing={4}
           justify={'center'}
           align={'center'}>
-          <Text>logo</Text>
+          <Text fontSize="2xl" fontWeight={"medium"} color="gray.800">OurBlog</Text>
         </Container>
         <Box
           borderTopWidth={1}
           borderStyle={'solid'}
-          borderColor={useColorModeValue('gray.200', 'gray.700')}>
+          borderColor={'gray.300'}>
           <Container
             as={Stack}
             maxW={'6xl'}
@@ -40,10 +35,8 @@ import {
             align={{ base: 'center', md: 'center' }}>
             <Text>©2022 OurBlog. All rights reserved</Text>
             <Stack direction={'row'} spacing={6}>
-                <Text>link 1</Text>
-                <Text>link 1</Text>
-                <Text>link 1</Text>
-                <Text>link 1</Text>
+                <Text><Link to="/">Home</Link></Text>
+                <Text><Link to="/profile">account</Link></Text>
             </Stack>
           </Container>
         </Box>
