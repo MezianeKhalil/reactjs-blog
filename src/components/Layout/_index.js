@@ -4,6 +4,7 @@ import SignupLayout from './signupLayout'
 import ProfileLayout from './profileLayout'
 import ArticleLayout from './articleLayout'
 import AuthorLayout from './authorLayout'
+import CreateLayout from './createLayout'
 
 export{
     HomeLayout,
@@ -11,5 +12,6 @@ export{
     SignupLayout,
     ProfileLayout,
     ArticleLayout,
-    AuthorLayout
+    AuthorLayout,
+    CreateLayout
 }

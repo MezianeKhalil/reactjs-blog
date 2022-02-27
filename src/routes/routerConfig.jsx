@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { Home, Login, Signup, Profile, Article, Author } from '../pages/_index'
+import { Home, Login, Signup, Profile, Article, Author, CreateBlog } from '../pages/_index'
 
 export default function RouterConfig() {
   return (
@@ -11,6 +11,7 @@ export default function RouterConfig() {
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/article/:id' element={<Article/>}/>
         <Route path='/my-posts' element={<Author/>}/>
+        <Route path='/create' element={<CreateBlog/>}/>
     </Routes>
   )
 }

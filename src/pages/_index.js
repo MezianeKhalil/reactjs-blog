@@ -4,6 +4,7 @@ import Signup from './signup'
 import Profile from './profile'
 import Article from './article'
 import Author from './author'
+import CreateBlog from './createBlog'
 
 
 export {
@@ -12,5 +13,6 @@ export {
     Signup,
     Profile,
     Article,
-    Author
+    Author,
+    CreateBlog
 }
