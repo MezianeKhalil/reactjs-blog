@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { BiEdit, BiTrash  } from "react-icons/bi"
 import { DeleteBlog, EditBlog } from '../modals/_index'
 
-export default function BlogAuthor() {
+export default function BlogAuthor({article}) {
   return (
     <Box py={3} fontFamily="poppins">
       <Box
@@ -17,14 +17,14 @@ export default function BlogAuthor() {
         overflow={'hidden'}>
         <Stack>
           <Flex justifyItems={"center"} alignItems="center" align={"center"}>
-            <Link to={`/article/${1}`}>
+            <Link to={`/article/${article.id}`}>
                 <Heading
                     color="gray.900"
                     fontSize={'2xl'}
                     fontFamily="poppins"
                     fontWeight={600}
                 >
-                    Boost your conversion rate
+                   {article.title}
                 </Heading>  
             </Link>
             <Spacer />
@@ -34,9 +34,7 @@ export default function BlogAuthor() {
             </Box>
           </Flex>
           <Text color={'gray.700'}>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam.
+              {article.content}
           </Text>
           <Text
               color={'purple.500'}
@@ -44,7 +42,7 @@ export default function BlogAuthor() {
               fontWeight={500}
               fontSize={'sm'}
               letterSpacing={1.1}>
-              Feb 08, 2021
+              {new Date(article.createdAt).toISOString().slice(0,10)}
           </Text>
         </Stack>
       </Box>

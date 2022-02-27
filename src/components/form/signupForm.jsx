@@ -1,10 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Formik, Form } from 'formik'
 import { InputField } from './types/_index'
 import { Button, Text, Box } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import * as yup  from 'yup'
-
+import { signupCall } from '../../services/httpClient'
 
 const signupSchemaValidation = yup.object({
     username:yup.string().min(5,'user name to short').required('user name is required'),
@@ -13,13 +13,28 @@ const signupSchemaValidation = yup.object({
 })
 
 export default function SignupForm() {
-  return (
+
+    const navigate = useNavigate()
+    const [isLoading,setLoading] = useState(false)
+    const handelSubmit = async (body, actions)=>{
+        try{
+            setLoading(true)
+            const response = await signupCall(body)
+            localStorage.setItem("TOKEN", response.data.accessToken)
+            navigate('/profile')
+            setLoading(false)
+        }catch(error){
+            setLoading(false)
+            console.log("error:", error)
+        }
+    }
+    return (
     <Formik
         initialValues={{email: "",password: "", username: ""}}
         validationSchema={signupSchemaValidation}
         onSubmit={
-            (values)=>{
-                console.log("values:", values)
+            (values,actions)=>{
+                handelSubmit(values,actions)
             }
         }
     >
@@ -47,6 +62,6 @@ export default function SignupForm() {
                 </Box>
             )
         }
-    </Formik>
-  )
+        </Formik>
+    )
 }

@@ -10,10 +10,10 @@ const editSchemaValidation = yup.object({
     email:yup.string().email('invalid email').required('email is required'),
 })
 
-export default function EditProfileForm() {
+export default function EditProfileForm({user}) {
   return (
     <Formik
-        initialValues={{email: "", username: ""}}
+        initialValues={{email: user.email, username: user.username}}
         validationSchema={editSchemaValidation}
         onSubmit={
             (values)=>{

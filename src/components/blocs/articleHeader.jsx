@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Stack, Flex, Heading, Text } from '@chakra-ui/react'
   
-export default function ArticleHeader() {
+export default function ArticleHeader({article}) {
   return (
     <Container maxW={'8xl'} fontFamily="poppins" h="56" bg="gray.50">
       <Stack
@@ -22,15 +22,15 @@ export default function ArticleHeader() {
               fontFamily="poppins"
               color={'gray.900'}
           >
-              Boost your conversion rate
+              {article.title}
           </Heading>
           <Text color={'gray.700'} fontSize="lg">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum pariatur sit perspiciatis magni tempore enim culpa id possimus repellendus totam!
+            {article.content}
           </Text>
           <Stack mt={2} direction={'row'} spacing={2} align={'center'} justifyItems="center">
             <Flex direction={'row'} gap={2} justifyItems="center" align={"center"} alignItems="center" maxW="6xl" mx="auto">
-              <Text fontWeight={600} fontSize="xl" textTransform={"capitalize"}>meziane khalil</Text>
-              <Text color={'gray.700'} fontSize="lg">Feb 08, 2021</Text>
+              <Text fontWeight={600} fontSize="xl" textTransform={"capitalize"}>{article.user.username}</Text>
+              <Text color={'gray.700'} fontSize="lg">{new Date(article.createdAt).toISOString().slice(0,10)}</Text>
             </Flex>
         </Stack>
         </Stack>

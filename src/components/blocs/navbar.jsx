@@ -2,7 +2,6 @@ import {
   Box,
   Flex,
   HStack,
-  IconButton,
   Button,
   Menu,
   MenuButton,
@@ -11,11 +10,12 @@ import {
   MenuDivider,
   Heading,
 } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { BiDownArrow } from "react-icons/bi"
+import { useProfile } from '../../swrHooks/useProfile'
 
 export default function Navbar() {
-
+  const {user, isLoadingProfile, error}= useProfile()
   return (
     <>
       <Box fontFamily="poppins" px={{ base: 4, sm: 6, md: 8, xl: 28 }} shadow={"md"}>
@@ -27,7 +27,7 @@ export default function Navbar() {
               </Heading>
               <Flex alignItems={'center'}>
                   {
-                    true? <IsAuth/>:<NotAuth/>
+                    localStorage.getItem('TOKEN')? <IsAuth user={user?.data}/>:<NotAuth/>
                   }
               </Flex>
           </Flex>
@@ -36,7 +36,8 @@ export default function Navbar() {
   )
 }
 
-const IsAuth = ()=>{
+const IsAuth = ({user})=>{
+  const navigate = useNavigate()
     return(
       <Menu>
         <MenuButton
@@ -46,7 +47,7 @@ const IsAuth = ()=>{
           minW={0}
           px="20"
         >
-          <Button size="lg" color="gray.800" textTransform="capitalize" variant="none" leftIcon={<BiDownArrow/>}>meziane khalil</Button>
+          <Button size="lg" color="gray.800" textTransform="capitalize" variant="none" leftIcon={<BiDownArrow/>}>{user?.username}</Button>
         </MenuButton>
         <MenuList>
           <MenuItem>
@@ -59,7 +60,7 @@ const IsAuth = ()=>{
             <Link to="/my-posts">My Posts</Link>
           </MenuItem>
           <MenuDivider/>
-          <MenuItem>Logout</MenuItem>
+          <MenuItem onClick={()=>{localStorage.clear();navigate("/login")}}>Logout</MenuItem>
         </MenuList>
       </Menu>
     )
