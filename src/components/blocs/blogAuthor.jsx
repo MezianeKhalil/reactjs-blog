@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Heading, Text, Stack, Button, Flex, Spacer, IconButton } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { BiEdit, BiTrash  } from "react-icons/bi"
+import { DeleteBlog, EditBlog } from '../modals/_index'
 
 export default function BlogAuthor() {
   return (
@@ -28,11 +29,10 @@ export default function BlogAuthor() {
             </Link>
             <Spacer />
             <Box>
-              <IconButton mr="1" icon={<BiEdit />} size="sm"  colorScheme="purple" variant="outline"></IconButton>
-              <IconButton ml="1" icon={<BiTrash />} size="sm" colorScheme="red" variant="outline"></IconButton>
+              <EditBlog/>
+              <DeleteBlog/>
             </Box>
           </Flex>
-          
           <Text color={'gray.700'}>
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
               nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
