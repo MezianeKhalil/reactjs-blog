@@ -4,6 +4,7 @@ import BlogPost from './blog'
 import ArticleHeader from './articleHeader'
 import Footer from './footer'
 import BlogContent from './blogContent'
+import BlogAuthor from './blogAuthor'
 
 export {
     Navbar,
@@ -11,5 +12,6 @@ export {
     BlogPost,
     ArticleHeader,
     Footer,
-    BlogContent
+    BlogContent,
+    BlogAuthor
 }
