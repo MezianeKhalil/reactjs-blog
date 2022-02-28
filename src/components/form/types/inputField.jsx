@@ -9,7 +9,7 @@ export default function InputField(props) {
             <label htmlFor={field.name}>
                 <Text my="3" textTransform={"capitalize"} fontSize="lg">{props.label}</Text>
             </label>
-            <Input {...field} {...props} isInvalid={meta.touched && meta.error} errorBorderColor='crimson'/>
+            <Input autoComplete="off" {...field} {...props} isInvalid={meta.touched && meta.error} errorBorderColor='crimson'/>
             <Text color={"red.500"} fontWeight="400" textTransform={"capitalize"} position="absolute" bottom={-1} left="2">
                 <ErrorMessage name={field.name} component="span"/>
             </Text>

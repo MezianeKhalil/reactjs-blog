@@ -3,8 +3,9 @@ import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody,
 import { BiEdit  } from "react-icons/bi"
 import { EditArticleForm } from '../form/_index'
 
-export default function EditBlog() {
+export default function EditBlog({article}) {
     const { isOpen, onOpen, onClose } = useDisclosure()
+
     return (
         <>
             <IconButton onClick={onOpen} mr="1" icon={<BiEdit />} size="sm"  colorScheme="purple" variant="outline"></IconButton>
@@ -13,7 +14,7 @@ export default function EditBlog() {
                 <ModalContent fontFamily={"poppins"}>
                     <ModalHeader>Edit Article</ModalHeader>
                     <ModalCloseButton />
-                    <EditArticleForm onClose={onClose}/>
+                    <EditArticleForm article={article} onClose={onClose}/>
                 </ModalContent>
             </Modal>
         </>

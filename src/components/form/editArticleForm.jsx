@@ -3,20 +3,35 @@ import { Formik, Form } from 'formik'
 import { Box, ModalFooter, Button } from '@chakra-ui/react'
 import { InputField, TextareaField } from './types/_index'
 import * as yup  from 'yup'
+import { EditBlogCall } from './../../services/httpClient'
+import { useBlogsAuthor } from './../../swrHooks/useBlogsAuthor'
 
 const editSchemaValidation = yup.object({
   title:yup.string().min(6,'title to short').required('title is required'),
   content:yup.string().min(6,'content to short').required('content is required'),
 })
 
-export default function EditArticleForm({onClose}) {
+export default function EditArticleForm({onClose, article}) {
+
+  const { mutate } = useBlogsAuthor()
+
+  const handelEdit = async (body)=>{
+      try{
+          await EditBlogCall(body,article.id)
+          mutate()
+          onClose()
+      }catch(error){
+          console.log(error.response)
+      }
+  }
+
   return (
     <Formik
-        initialValues={{title:"",content:""}}
+        initialValues={{title:article.title,content:article.content}}
         validationSchema={editSchemaValidation}
         onSubmit={
             (values)=>{
-                console.log("values:", values)
+              handelEdit(values)
             }
         }
     >

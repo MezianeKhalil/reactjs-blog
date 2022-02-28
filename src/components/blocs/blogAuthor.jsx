@@ -29,8 +29,8 @@ export default function BlogAuthor({article}) {
             </Link>
             <Spacer />
             <Box>
-              <EditBlog/>
-              <DeleteBlog/>
+              <EditBlog article={article}/>
+              <DeleteBlog id={article.id}/>
             </Box>
           </Flex>
           <Text color={'gray.700'}>

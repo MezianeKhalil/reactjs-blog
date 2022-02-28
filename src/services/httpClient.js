@@ -1,6 +1,6 @@
 import axios from 'axios'
 import setAuthHeader from './setAuthHeader'
-import { LOGIN, SIGNUP, UPDATE_PROFILE, CREATE_BLOG } from './endPoints'
+import { LOGIN, SIGNUP, UPDATE_PROFILE,EDIT_PROFILE, BLOG } from './endPoints'
 
 // login call
 export const loginCall = (requestBody) => {
@@ -23,5 +23,27 @@ export const UpdateProfileCall = (requestBody)=>{
 export const CreateBlogCall = (requestBody)=>{
     const token = localStorage.getItem("TOKEN")
     setAuthHeader(token)
-    return axios.post(CREATE_BLOG, requestBody)
+    return axios.post(BLOG, requestBody)
+}
+
+// delete blog call
+export const DeleteBlogCall = (id)=>{
+    const token = localStorage.getItem("TOKEN")
+    setAuthHeader(token)
+    return axios.delete(`${BLOG}/${id}`)
+}
+
+
+// edit blog call
+export const EditBlogCall = (body,id)=>{
+    const token = localStorage.getItem("TOKEN")
+    setAuthHeader(token)
+    return axios.patch(`${BLOG}/${id}`, body)
+}
+
+// edit profile call
+export const EditProfileCall = (body)=>{
+    const token = localStorage.getItem("TOKEN")
+    setAuthHeader(token)
+    return axios.patch(EDIT_PROFILE, body)
 }
